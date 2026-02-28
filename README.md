@@ -1,5 +1,5 @@
 <div align="center">
-  <img src="./assets/images/dagu-logo.webp" width="480" alt="Dagu Logo">
+  <img src="./assets/images/hero-logo.webp" width="480" alt="Dagu Logo">
   <br/>
 
   <p>
