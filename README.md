@@ -1,7 +1,7 @@
 <div align="center">
   <img src="./assets/images/hero-logo.webp" width="480" alt="Dagu Logo">
   <br>
-  <p><strong>Turn any scripts to durable workflows in minutes.</strong></p>
+  <p><strong>Turn any data scripts to durable workflows in minutes.</strong></p>
   <p>
     <a href="https://docs.dagu.sh/overview/changelog"><img src="https://img.shields.io/github/release/dagucloud/dagu.svg?style=flat-square" alt="Latest Release"></a>
     <a href="https://github.com/dagucloud/dagu/actions/workflows/ci.yaml"><img src="https://img.shields.io/github/actions/workflow/status/dagucloud/dagu/ci.yaml?style=flat-square" alt="Build Status"></a>
@@ -16,16 +16,16 @@
   </p>
 </div>
 
-## Local-first Control Plane for Existing Ops Automation and AI Agent Workflows
+## Local-first Control Plane for Data Scripts and Ops Automation
 
-Dagu turns existing shell scripts, Python scripts, SQL jobs, containers, SSH commands, and runbooks into scheduled, observable pipelines that run where your data already lives.
+Dagu is a simple, lightweight workflow engine for small teams and private infrastructure. Single binary, file-based, and self-hosted,
 
-Define the workflow in plain YAML. Dagu adds the operational layer they are missing: scheduling, durable execution, logs, artifacts, queues, a Web UI, API/webhooks, distributed workers, and notifications.
+It can run shell commands, any scripts, containers, HTTP requests, SQL queries, SSH commands, sub-workflows, and AI agent steps. It runs as a single binary, stores state in local files by default, and adds scheduling, dependencies, retries, queues, logs, notifications, documents, a Web UI, and optional distributed workers.
 
 **Highlights:**
 
 - **Local-first:** Workflows are file-based: One binary, no external database or broker required. Air-gapped ready.
-- **CLI-oriented:** Keep your existing automation as shell scripts, Python jobs, SQL, dbt, DuckDB, containers, and data-processing runbooks into pipelines without rewriting them into a framework.
+- **Language-agnostic:** Keep your existing automation as shell scripts, Python jobs, SQL, dbt, DuckDB, containers, and data-processing runbooks into pipelines without rewriting them into a framework.
 - **AI-agent ready:** Use your favorite AI agent through [MCP](https://docs.dagu.sh/getting-started/mcp#mcp-server) to create, improve, debug, and run workflows.
 
 For a quick look at how workflows are defined, see the [examples](https://docs.dagu.sh/writing-workflows/examples).
@@ -226,6 +226,19 @@ Run Dagu on one machine, scale out with distributed workers, or use a managed Da
 - **Dagu managed instance:** Includes its own managed license. Private workers can run on your infrastructure.
 
 Managed Dagu instances do not expose a Docker daemon or Docker socket. Workflows that need Docker step execution should use self-hosted Dagu or a private worker with Docker access.
+
+## Key Features
+
+- **Observability:** Shared workflows and scheduling with clear visualizations, status tracking, and logs in the Web UI.
+- **Language-agnostic:** No framework required. Define workflow steps using [shell commands](https://docs.dagu.sh/step-types/shell), Docker containers, Kubernetes Jobs, SQL queries, HTTP requests, and any other tool via [official](https://docs.dagu.sh/dagu-actions/official) and [third-party Dagu Actions](https://docs.dagu.sh/dagu-actions/third-party).
+- **Reproducibility:** Reproducible runs with [pinned tools](https://docs.dagu.sh/writing-workflows/tools), plus automatic installation and caching on workers—eliminating the need to manually install dependencies on the server or workers.
+- **Multiplayer Agent:** Shared [AI agents](https://docs.dagu.sh/features/agent/) integrated into workflows, the Web UI, and chat tools (Slack, Telegram, Discord, etc.).
+- **Built-in Approvals:** The [Human-in-the-loop steps](https://docs.dagu.sh/writing-workflows/approval#approval) for manual approvals, review, and intervention in any workflow.
+- **MCP Server:** Built-in [MCP server](https://docs.dagu.sh/mcp/) for authoring and running workflows via AI agents like Claude Code, Codex, Gemini CLI, Pi, OpenCode, and more.
+- **Harness-agnostic:** You can run any coding agent (Claude Code, Codex, Gemini CLI, Pi, OpenCode, etc.) with a built-in [harness](https://docs.dagu.sh/step-types/harness/) action.
+- **Secret management:** Built-in [secret management](https://docs.dagu.sh/web-ui/secrets) with secure log masking, preventing credentials from leaking to AI agents or the Web UI.
+- **Self-host or managed:** Self-hosted via a single binary that runs on Linux, macOS, and Windows. Includes an optional distributed worker mode for scaling out execution across machines.
+- **Permission Control:** [RBAC and SSO support](https://docs.dagu.sh/server-admin/authentication/builtin) for team environments, controlling who can view, run, and edit workflows through granular permissions and audit logging.
 
 ## Architecture
 
